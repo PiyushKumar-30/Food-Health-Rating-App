@@ -7,23 +7,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Camera Preview -->
+    <!-- Camera Preview with id preview_view -->
     <androidx.camera.view.PreviewView
-        android:id="@+id/previewView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/preview_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/infoContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Container for Nutritional Information -->
+    <!-- Overlay Container for Nutritional Information -->
     <LinearLayout
-        android:id="@+id/infoContainer"
-        android:layout_width="match_parent"
+        android:id="@+id/overlayContainer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#CCFFFFFF"
+        android:background="#80000000"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,20 +33,19 @@
             android:id="@+id/tvHealthScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Health Score: -"
-            android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"/>
+            android:text="Health Score: N/A"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tvNutritionalInfo"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nutritional Info:\n- Sugar: - g\n- Fat: - g\n- Sodium: - mg\n- Fiber: - g\n- Protein: - g"
+            android:text="Nutritional Info:"
+            android:textColor="@android:color/white"
             android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp" />
 
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
