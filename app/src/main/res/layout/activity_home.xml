@@ -23,27 +23,42 @@
     <!-- RecyclerView for common products -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:padding="8dp"
-        app:layout_constraintTop_toBottomOf="@id/tvAppTitle"
-        app:layout_constraintBottom_toTopOf="@id/btnScan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:spanCount="2"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/item_product" />
+
 
     <!-- Scan Product Button -->
     <Button
-        android:id="@+id/btnScan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scan Product"
-        android:padding="12dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#F7047808"
+        android:id="@+id/btnAddProduct"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/round_button"
+        android:text="+"
+        android:textSize="24sp"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_margin="16dp"
+        android:elevation="4dp"/>
+
+    <Button
+        android:id="@+id/btnScan"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/round_button"
+        android:text=""
+        android:drawableTint="@android:color/white"
+        android:layout_margin="16dp"
+        android:elevation="4dp"
+        android:drawableTop="@drawable/ic_camera"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

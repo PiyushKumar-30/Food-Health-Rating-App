@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
+    id("kotlin-kapt") // Add this if not already present
 }
 
 android {
@@ -58,5 +60,6 @@ dependencies {
     // OkHttp for network requests
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
 
-
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    kapt("com.github.bumptech.glide:compiler:4.12.0")
 }

@@ -1,11 +1,13 @@
 package com.example.foodhealthrating.adapter
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.foodhealthrating.R
 import com.example.foodhealthrating.model.Product
 
@@ -21,8 +23,7 @@ class ProductAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_product, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_product, parent, false)
         return ProductViewHolder(view)
     }
 
@@ -30,7 +31,15 @@ class ProductAdapter(
         val product = products[position]
         holder.productName.text = product.name
         holder.productCalories.text = product.calories
-        holder.productImage.setImageResource(product.imageResId)
+
+        // Load image from URI or Drawable
+        if (product.imageUri != null) {
+            Glide.with(holder.itemView.context)
+                .load(product.imageUri)
+                .into(holder.productImage)
+        } else if (product.imageResId != null) {
+            holder.productImage.setImageResource(product.imageResId)
+        }
 
         holder.itemView.setOnClickListener { onItemClick(product) }
     }
